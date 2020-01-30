@@ -120,7 +120,7 @@ int validate_bill_record(char *str)
 	if (item) {
 		return item->price;
 	}
-	printf("%s: not found\n", key.ean);
+	/*	printf("%s: not found\n", key.ean)*/
 
 	/* debug code */
 /*	for (i = 0; i < cur_size; i++) {
