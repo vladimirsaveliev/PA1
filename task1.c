@@ -114,6 +114,7 @@ void validate_price_list(char *str)
 
 	/* save in array */
 	add_item(ean, price);
+	printf("%s => %d\n", ean, price);
 }
 
 /* expect: EAN (all digits) */
@@ -175,6 +176,7 @@ int main(void)
 		if (!input[0]) {
 			/* empty line: this is ether price list or
 			 * current bill is over */
+
 			mode++;
 
 			if (mode > 2) {
@@ -182,7 +184,7 @@ int main(void)
 				printf("Total: %d\n", billtotal);
 			}
 			billtotal = 0;
-			printf("Bill:\n");
+			printf("\nBill:\n");
 			continue;
 		}
 
