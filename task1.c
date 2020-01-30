@@ -195,6 +195,11 @@ int main(void)
 		billtotal += validate_bill_record(input);
 		printf("%s\n", input);
 	}
+	if (mode == 1) {
+		/* no empty line after price list */
+		printf("Invalid input.\n");
+		exit(1);
+	}
 
 	/* for last bill */
 	printf("Total: %d\n", billtotal);
