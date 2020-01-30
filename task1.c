@@ -85,6 +85,10 @@ void validate_price_list(char *str)
 		p2++;
 	}
 	price = atoi(p);
+	if (price < 1) {
+		printf("Invalid input.\n");
+		exit(1);
+	}
 	
 
 	/* ok, ean is EAN in allocated string, price is price */
@@ -120,6 +124,8 @@ int validate_bill_record(char *str)
 	if (item) {
 		return item->price;
 	}
+	printf("Invalid input.\n");
+	exit(1);
 	/*	printf("%s: not found\n", key.ean)*/
 
 	/* debug code */
