@@ -138,6 +138,7 @@ int main(void)
 	int i;
 	int billtotal;
 
+	printf("Price list:\n");
 	while (fgets(input, 150, stdin)) {
 		/* get rid of '\n' in end */
 		len = strlen(input);
