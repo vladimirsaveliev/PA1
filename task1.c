@@ -45,10 +45,12 @@ void add_item(char *eancode, int price)
 /* expect: EAN => price */
 void validate_price_list(char *str)
 {
+	int i;
 	char *p;
 	char *ean;
 	char *p2;
 	int price;
+	int len;
 
 	p = strstr(str, "=>");
 	if (p == NULL) {
@@ -67,6 +69,21 @@ void validate_price_list(char *str)
 		*p2 = 0;
 		p2--;
 	}
+	/* validate ean */
+	len = strlen(ean);
+	if (len > 100 || len < 5) {
+		printf("Invalid input.\n");
+		exit(1);
+	}
+	for (i = 0; i < len; i++) {
+		if (!isdigit(ean[i])) {
+			printf("Invalid input.\n");
+			exit(1);
+		}
+	}
+
+
+
 
 	/* step over "=>" */
 	p += 2;
@@ -74,6 +91,8 @@ void validate_price_list(char *str)
 	/* skip spaces */
 	while (*p == ' ')
 		p++;
+
+
 	
 	/* check that from p to end there are only digits */
 	p2 = p;
